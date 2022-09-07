@@ -6,7 +6,7 @@ const MainLayout = ({ children }) => {
         <Box as="main" p={0}>
             <Container
                 maxW={'100vw'}
-                backgroundColor={"#2359a5"}
+                backgroundColor={"#ff6a00"}
                 pb={8}
             >
                 <NavBar />
