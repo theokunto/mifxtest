@@ -2,19 +2,19 @@ import axios from "axios";
 import store from "../redux/store";
 import { PREFIX_URL } from "../variables/urls";
 
-export const HitApi = axios.create({
+export const hitApi = axios.create({
     baseURL: `${PREFIX_URL}`,
     headers: {
         "Content-Type": "application/json",
     },
 })
 
-Object.setPrototypeOf(HitApi, axios)
+Object.setPrototypeOf(hitApi, axios)
 
-HitApi.interceptors.request.use(
+hitApi.interceptors.request.use(
     (config) => {
-        if (!config.url.includes("login")) {
-            config.headers.Authorization = store.getState().auth.authKey
+        if (!config.url.includes("login") && !config.url.includes("register")) {
+            config.headers.Authorization = store.getState().auth.token
         } else {
             config.headers.Authorization = ""
         }
@@ -25,7 +25,7 @@ HitApi.interceptors.request.use(
     }
 )
 
-HitApi.interceptors.response.use(
+hitApi.interceptors.response.use(
     (result) => {
         return result
     },

@@ -1,11 +1,17 @@
 import { Box, Container } from "@chakra-ui/react";
+import NavBar from "../navBar";
 
 const MainLayout = ({ children }) => {
     return (
-        <Box as="main" pb={8}>
-            <Container maxW={"container.xl"} pt={14}>
-                {children}
+        <Box as="main" p={0}>
+            <Container
+                maxW={'100vw'}
+                backgroundColor={"#2359a5"}
+                pb={8}
+            >
+                <NavBar />
             </Container>
+            {children}
         </Box>
     )
 };

@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import LoginButtonGroup from "../../components/formItems/buttonGroup/LoginButtonGroup";
 import CommonField from "../../components/formItems/field";
 import AuthLayout from "../../components/layouts/auth";
-import { HitApi } from "../../helpers/hitApi";
+import {hitApi } from "../../helpers/hitApi";
 import { validateEmail, validatePassword } from "../../helpers/utils";
 import { setLogin } from "../../redux/authSlice";
 import { LOGIN_URL } from "../../variables/urls";
@@ -18,7 +18,7 @@ const LoginPage = () => {
     const navigate = useNavigate()
     function login(params) {
         setIsLoading(true)
-        HitApi.post(LOGIN_URL, {
+        hitApi.post(LOGIN_URL, {
             email: params.email,
             password: params.password
         }).then((result) => {

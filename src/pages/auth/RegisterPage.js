@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import RegisterButtonGroup from "../../components/formItems/buttonGroup/RegisterButtonGroup";
 import CommonField from "../../components/formItems/field";
 import AuthLayout from "../../components/layouts/auth";
-import { HitApi } from "../../helpers/hitApi";
+import { hitApi } from "../../helpers/hitApi";
 import { validateConfirmPassword, validateEmail, validateName, validatePassword } from "../../helpers/utils";
 import { REGISTER_URL } from "../../variables/urls";
 
@@ -15,7 +15,7 @@ const RegisterPage = () => {
     const toast = useToast()
     function register(params) {
         setIsLoading(true)
-        HitApi.post(REGISTER_URL,{
+        hitApi.post(REGISTER_URL,{
             email: params.email,
             name: params.name,
             password: params.password
@@ -42,6 +42,7 @@ const RegisterPage = () => {
                     duration: 5000,
                     status: "error"
                 })
+                setIsLoading(false);
             })
     }
     return (

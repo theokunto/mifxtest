@@ -3,8 +3,10 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 import authReducer from "./authSlice";
+import productListReducer from "./productSlice";
 const reducers = combineReducers({
-    auth: authReducer
+    auth: authReducer,
+    productList: productListReducer
 })
 const persistConfig = {
     key: 'root',
