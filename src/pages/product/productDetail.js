@@ -6,11 +6,12 @@ import { useParams } from "react-router-dom";
 import ReviewsCount from "../../components/common/reviewsCount/reviewsCount";
 import StarRating from "../../components/common/starRating/startRating";
 import MainLayout from "../../components/layouts/main";
+import { FALLBACK_IMG_URL } from "../../variables/urls";
 
 const ProductDetail = () => {
-    const dataproduct = useSelector(state => state.productList.productList)
     const idProduct = useParams();
-    const detaildata = dataproduct.find(item => item.id === idProduct.id);
+    const dataproduct = useSelector(state => state.productList.productList)
+    const detaildata = dataproduct.find(item => item.id === idProduct?.id);
     const images = detaildata.images
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     return (
@@ -52,7 +53,7 @@ const ProductDetail = () => {
                                 maxW={400}
                                 src={images[selectedImageIndex]}
                                 alt={`bigimage${selectedImageIndex}`}
-                                fallbackSrc='https://i.pinimg.com/originals/a3/1d/4a/a31d4ac1da27d5a9b39bcef3499d7215.jpg'
+                                fallbackSrc={FALLBACK_IMG_URL}
                             />
                         </Container>
                         <Container maxW={400} p={0} mt={6} ml={0} centerContent>
@@ -74,7 +75,7 @@ const ProductDetail = () => {
                                             w={14}
                                             src={item}
                                             alt={`image${index}`}
-                                            fallbackSrc='https://i.pinimg.com/originals/a3/1d/4a/a31d4ac1da27d5a9b39bcef3499d7215.jpg'
+                                            fallbackSrc={FALLBACK_IMG_URL}
                                         />
                                     </GridItem>
 

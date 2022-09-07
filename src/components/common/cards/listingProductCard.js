@@ -1,4 +1,5 @@
 import { Badge, Box, Image } from "@chakra-ui/react";
+import { FALLBACK_IMG_URL } from "../../../variables/urls";
 import ReviewsCount from "../reviewsCount/reviewsCount";
 import StarRating from "../starRating/startRating";
 const ListingProductCard = ({ image, name, price, off, rating, isNew, out_of_stock, reviewCount, sizes }) => {
@@ -15,7 +16,7 @@ const ListingProductCard = ({ image, name, price, off, rating, isNew, out_of_sto
                 alt={name}
                 objectFit={"cover"}
                 
-                fallbackSrc={'https://i.pinimg.com/originals/a3/1d/4a/a31d4ac1da27d5a9b39bcef3499d7215.jpg'}
+                fallbackSrc={FALLBACK_IMG_URL}
             />
             <Box p={6}>
                 <Box
